@@ -79,7 +79,7 @@ di as txt "Selecting top `no_overall' confounders"
 use "$projectdir/data/bias_info_all.dta", replace
 drop if c1==0 // this drops two test results mistakenly included
 gen dim = substr(code_id, 1,2)
-keep if dim == "d1" | dim == "d2" | dim == "d3"
+keep if dim == "d1" | dim == "d2" | dim == "d3" // d1 = clinical dim, d2 = referral dim, d3 = therapy dim
 gen pc1=e1c1/e1
 gen pc0=e0c1/e0
 gen rr_ce=pc1/pc0
